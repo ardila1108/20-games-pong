@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://el848u4qo4qr"]
+
+[ext_resource type="Texture2D" uid="uid://juxb3lrns0nm" path="res://Sprites/Board.png" id="1_ebmjs"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ebmjs")

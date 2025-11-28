@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://el848u4qo4qr"]
+[gd_scene load_steps=4 format=3 uid="uid://el848u4qo4qr"]
 
 [ext_resource type="Texture2D" uid="uid://juxb3lrns0nm" path="res://Sprites/Board.png" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://bwky4txipbdep" path="res://Scenes/Player.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://k62th385fm0x" path="res://Scenes/ball.tscn" id="4_3dryh"]
 
 [node name="Game" type="Node2D"]
 
@@ -8,3 +10,13 @@
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_ebmjs")
+
+[node name="Player" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(25, 62)
+
+[node name="Ball" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(401, 227)
+
+[node name="Player2" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(-23, 62)
+paddle_ID = 2

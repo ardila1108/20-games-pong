@@ -27,6 +27,7 @@ window/size/viewport_height=455
 [global_group]
 
 paddle=""
+ball=""
 
 [input]
 

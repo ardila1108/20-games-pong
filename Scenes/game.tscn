@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://el848u4qo4qr"]
+[gd_scene load_steps=6 format=3 uid="uid://el848u4qo4qr"]
 
 [ext_resource type="Texture2D" uid="uid://juxb3lrns0nm" path="res://Sprites/Board.png" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://b3gvjw07b5thh" path="res://Scripts/game_controller.gd" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bwky4txipbdep" path="res://Scenes/Player.tscn" id="2_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://k62th385fm0x" path="res://Scenes/ball.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dy510mdj4m7qc" path="res://Scenes/score_zone.tscn" id="5_i6g32"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wrm1d"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_wowpa")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -12,11 +16,29 @@ offset_bottom = 40.0
 texture = ExtResource("1_ebmjs")
 
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
-position = Vector2(25, 62)
-
-[node name="Ball" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(401, 227)
 
 [node name="Player2" parent="." instance=ExtResource("2_qxrlw")]
 position = Vector2(-23, 62)
+paddle_ID = 2
+
+[node name="UpperWall" type="StaticBody2D" parent="."]
+position = Vector2(402, 0)
+rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperWall"]
+shape = SubResource("WorldBoundaryShape2D_wrm1d")
+
+[node name="LowerWall" type="StaticBody2D" parent="."]
+position = Vector2(402, 455)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerWall"]
+shape = SubResource("WorldBoundaryShape2D_wrm1d")
+
+[node name="ScoreZone" parent="." instance=ExtResource("5_i6g32")]
+position = Vector2(-5, 227)
+rotation = 1.5707964
+
+[node name="ScoreZone2" parent="." instance=ExtResource("5_i6g32")]
+position = Vector2(807, 227)
+rotation = -1.5707964
 paddle_ID = 2

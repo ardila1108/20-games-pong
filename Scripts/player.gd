@@ -13,13 +13,12 @@ func _ready() -> void:
 	if paddle_ID == 1:
 		paddle_sprite.texture = load("res://Sprites/Player.png")
 		global_position.x = horizontal_margin
-		reset()
 	elif paddle_ID == 2:
 		paddle_sprite.texture = load("res://Sprites/Computer.png")
 		global_position.x = get_viewport_rect().size.x - horizontal_margin
-		reset()
 	else:
 		printerr("The Paddle ID needs to be assigned to 1 or 2")
+	reset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
